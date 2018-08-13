@@ -130,5 +130,25 @@ $.extend($.prototype, {
         });
 
         return this;
+    },
+
+    attr: function(name, value) {
+        if (arguments.length === 1) {
+            return this[0].getAttribute(name);
+        }
+
+        this.each((i, el) => {
+            el.setAttribute(name, value);
+        });
+
+        return this;
+    },
+
+    css: function(value) {
+        this.each((i, el) => {
+            $.extend(el.style, value);
+        })
+
+        return this;
     }
 });
