@@ -44,5 +44,21 @@ $.extend($.prototype, {
             });
         }
         return this;
+    },
+
+    clone: function() {
+        // const copied = [];
+
+        // this.each((i , el) => {
+        //     copied.push(el.cloneNode(true));
+        // });
+
+        const copied = Array.prototype.map.call(this, el => {
+            return el.cloneNode(true);
+        });
+        
+        this.length = 0;
+        Array.prototype.push.apply(this, copied)
+        return this;
     }
 });
