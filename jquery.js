@@ -84,5 +84,27 @@ $.extend($.prototype, {
         })
 
         return this;
+    },
+
+    addClass: function(className) {
+        this.each((i, el) => {
+            el.classList
+                .add
+                .apply(el.classList,
+                     className.split(' '));
+        });
+
+        return this;
+    },
+
+    toggleClass: function(className) {
+        this.each((i, el) => {
+            className.split(' ').forEach(x => {
+                el.classList
+                .toggle(x);
+            });
+        });
+
+        return this;
     }
 });
