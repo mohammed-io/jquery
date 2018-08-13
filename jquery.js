@@ -60,5 +60,29 @@ $.extend($.prototype, {
         this.length = 0;
         Array.prototype.push.apply(this, copied)
         return this;
+    },
+
+    on: function(eventName, callback) {
+        this.each((i, el) => {
+            el.addEventListener(eventName, callback);
+        })
+
+        return this;
+    },
+
+    off: function(eventName, callback) {
+        if (arguments.length === 0) {
+            this.each((i, el) => {
+                el.replaceWith(el.cloneNode(true))
+            })
+
+            return this;
+        }
+
+        this.each((i, el) => {
+            el.removeEventListener(eventName, callback);
+        })
+
+        return this;
     }
 });
