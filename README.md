@@ -32,6 +32,8 @@
 
 - css()
 
+- attr()
+
 - addClass()
 
 - toggleClass()

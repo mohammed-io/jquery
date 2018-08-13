@@ -106,5 +106,29 @@ $.extend($.prototype, {
         });
 
         return this;
+    },
+
+    html: function(value) {
+        if (arguments.length === 0) {
+            return this[0].innerHTML;
+        }
+
+        this.each((i, el) => {
+            el.innerHTML = value;
+        });
+
+        return this;
+    },
+
+    text: function(value) {
+        if (arguments.length === 0) {
+            return this[0].innerText;
+        }
+
+        this.each((i, el) => {
+            el.innerText = value;
+        });
+
+        return this;
     }
 });
